@@ -1,1 +1,1 @@
-# Web-Scraper-INST126-
+# Web Scraper (INST126 Final Project)
