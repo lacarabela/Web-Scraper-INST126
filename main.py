@@ -23,8 +23,9 @@ matches = []
 
 # Iterate over rows and collect data
 for row in rows:
-    cols = row.find_all('td')
-    if cols:  
+    # Include th for the first column (date) and td for the rest
+    cols = row.find_all(['th', 'td'])
+    if cols:
         match_data = {
             'date': cols[0].text.strip(),
             'start_time': cols[1].text.strip(),
@@ -47,5 +48,7 @@ for row in rows:
         }
         matches.append(match_data)
 
-# Output or process the scraped data
-print(matches)
+df = pd.DataFrame(matches)
+df = df.drop(df.index[0])
+
+print(df)
