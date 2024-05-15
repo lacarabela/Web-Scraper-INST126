@@ -139,3 +139,87 @@ print(f"I dont like {max_loss_referee}. He is a bad referee.")
 print()
 
 # Derive insights based on their goals for and against
+df['goals_for'] = pd.to_numeric(df['goals_for'], errors='coerce')
+df['goals_against'] = pd.to_numeric(df['goals_against'], errors='coerce')
+
+# Calculate average goals for and against
+average_goals_for = df['goals_for'].mean()
+average_goals_against = df['goals_against'].mean()
+
+print(f"Average Goals For: {average_goals_for:.2f}")
+print(f"Average Goals Against: {average_goals_against:.2f}")
+
+# Identify matches with the highest and lowest goals for and against
+max_goals_for_match = df.loc[df['goals_for'].idxmax()]
+min_goals_for_match = df.loc[df['goals_for'].idxmin()]
+max_goals_against_match = df.loc[df['goals_against'].idxmax()]
+min_goals_against_match = df.loc[df['goals_against'].idxmin()]
+
+print("\nMatch with the highest goals for:")
+print(max_goals_for_match)
+print("\nMatch with the lowest goals for:")
+print(min_goals_for_match)
+print("\nMatch with the highest goals against:")
+print(max_goals_against_match)
+print("\nMatch with the lowest goals against:")
+print(min_goals_against_match)
+
+# Visualization
+plt.figure(figsize=(14, 7))
+# Plot goals for
+plt.subplot(2, 1, 1)
+plt.plot(df['date'], df['goals_for'], marker='o', linestyle='-')
+plt.title('Goals For Over the Season')
+plt.xlabel('Date')
+plt.ylabel('Goals For')
+# Plot goals against
+plt.subplot(2, 1, 2)
+plt.plot(df['date'], df['goals_against'], marker='o', linestyle='-', color='r')
+plt.title('Goals Against Over the Season')
+plt.xlabel('Date')
+plt.ylabel('Goals Against')
+plt.tight_layout()
+plt.show()
+
+# Calculate the difference between actual goals and xG
+df['goals_vs_xg'] = df['goals_for'] - df['xg_for']
+df['goals_against_vs_xg'] = df['goals_against'] - df['xg_against']
+
+# Calculate average goals vs xG
+average_goals_vs_xg = df['goals_vs_xg'].mean()
+average_goals_against_vs_xg = df['goals_against_vs_xg'].mean()
+
+print(f"Average Goals For vs xG: {average_goals_vs_xg:.2f}")
+print(f"Average Goals Against vs xG: {average_goals_against_vs_xg:.2f}")
+
+# Identify matches with significant over/underperformance
+significant_overperforming_matches = df[df['goals_vs_xg'] > 1]
+significant_underperforming_matches = df[df['goals_vs_xg'] < -1]
+
+print("\nMatches where Barcelona significantly overperformed:")
+print(significant_overperforming_matches[['date', 'opponent', 'goals_for', 'xg_for', 'goals_vs_xg']])
+
+print("\nMatches where Barcelona significantly underperformed:")
+print(significant_underperforming_matches[['date', 'opponent', 'goals_for', 'xg_for', 'goals_vs_xg']])
+
+# Visualization
+plt.figure(figsize=(14, 7))
+# Plot actual goals vs xG
+plt.plot(df['date'], df['goals_for'], marker='o', linestyle='-', label='Goals For')
+plt.plot(df['date'], df['xg_for'], marker='o', linestyle='--', label='xG For')
+plt.title('Goals For vs xG Over the Season')
+plt.xlabel('Date')
+plt.ylabel('Goals')
+plt.legend()
+plt.tight_layout()
+plt.show()
+plt.figure(figsize=(14, 7))
+# Plot goals against vs xG
+plt.plot(df['date'], df['goals_against'], marker='o', linestyle='-', color='r', label='Goals Against')
+plt.plot(df['date'], df['xg_against'], marker='o', linestyle='--', color='orange', label='xG Against')
+plt.title('Goals Against vs xG Against Over the Season')
+plt.xlabel('Date')
+plt.ylabel('Goals')
+plt.legend()
+plt.tight_layout()
+plt.show()
