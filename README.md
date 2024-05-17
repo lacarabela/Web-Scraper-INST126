@@ -37,10 +37,20 @@ The data is cleaned and processed to ensure proper formatting. The processing in
 - Converting numerical data to appropriate data types.
 - Handling missing or malformed data.
 ### Analysis Performed
+The program performs the following analyses:
+1. **Average Goals Calculation:** Computes the average goals scored and conceded per match.
+2. **Extreme Matches Identification:** Finds matches with the highest and lowest goals scored and conceded.
+3. **xG Analysis:** Calculates the differences between actual goals and expected goals (xG) and identifies significant overperforming and underperforming matches.
+4. **Referee Impact Analysis:** Analyzes the impact of referees on match outcomes, identifying referees associated with the highest percentage of wins, draws, and losses.
 ### Visualizations
+The program generates the following plots:
+1. **Goals Over Time:** A line plot showing goals scored and conceded over time.
+2. **xG For and Against:** A scatter plot comparing actual goals to expected goals.
+3. **Goals vs xG:** A scatter plot highlighting significant overperforming and underperforming matches.
 ## Credits
 - BeautifulSoup: Used for parsing HTML content.
 - Pandas: Used for data manipulation and analysis.
 - Matplotlib: Used for generating visualizations.
 - My classmate Mary Nguyen: For her insights and help in reviewing the code.
 ## Acknowledgment
+- Data sourced from FBRef.
