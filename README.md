@@ -5,10 +5,10 @@ This program fetches and processes soccer match data from a specified URL, perfo
 ### Prerequisites
 1. Python: Ensure you have Python installed on your machine. You can download it from python.org.
 2. Required Libraries: Install the following Python libraries:
-  -- requests
-  - beautifulsoup4
-  - pandas
-  - matplotlib
+      - requests
+      - beautifulsoup4
+      - pandas
+      - matplotlib
 You can install these libraries using pip:
 ```
 pip install requests beautifulsoup4 pandas matplotlib
