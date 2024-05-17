@@ -38,4 +38,8 @@ The data is cleaned and processed to ensure proper formatting. The processing in
 ### Analysis Performed
 ### Visualizations
 ## Credits
+- BeautifulSoup: Used for parsing HTML content.
+- Pandas: Used for data manipulation and analysis.
+- Matplotlib: Used for generating visualizations.
+- My classmate Mary Nguyen: For her insights and help in reviewing the code.
 ## Acknowledgment
