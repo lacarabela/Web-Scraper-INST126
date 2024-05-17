@@ -48,9 +48,9 @@ The program generates the following plots:
 2. **xG For and Against:** A scatter plot comparing actual goals to expected goals.
 3. **Goals vs xG:** A scatter plot highlighting significant overperforming and underperforming matches.
 ## Credits
-- BeautifulSoup: Used for parsing HTML content.
-- Pandas: Used for data manipulation and analysis.
-- Matplotlib: Used for generating visualizations.
-- My classmate Mary Nguyen: For her insights and help in reviewing the code.
+- **BeautifulSoup:** Used for parsing HTML content.
+- **Pandas:** Used for data manipulation and analysis.
+- **Matplotlib:** Used for generating visualizations.
+- **My classmate Mary Nguyen:** For her insights and help in reviewing the code.
 ## Acknowledgment
 - Data sourced from FBRef.
