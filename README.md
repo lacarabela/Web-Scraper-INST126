@@ -38,4 +38,4 @@ The data is cleaned and processed to ensure proper formatting. The processing in
 ### Analysis Performed
 ### Visualizations
 ## Credits
-## Acknoledgement
+## Acknowledgment
